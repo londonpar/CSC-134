@@ -29,8 +29,8 @@ int main() {
     cout << "It grossed in total $" << movie_grossm << " million." << endl;
     
     // Print a move quote
-     cout << endl << " \" Ogres are like onions. Onions have layers. Ogres have layers.\" " <<endl;
+     cout << endl << " \"Ogres are like onions. Onions have layers. Ogres have layers.\" " <<endl;
 
-
+     
     return 0; // no errors
 }
