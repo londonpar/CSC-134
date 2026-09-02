@@ -29,5 +29,5 @@ int main() {
     cout << endl << "My favorite scene in " << movie_name << " is the chase scene with all the different types of Spider-Mans ordered to get Miles Morales." << endl;
 
     cout << "A fun fact about " << movie_name << " is that the lego scene in the movie was animated by a 14 year old animator." << endl;
-
+return 0;
 }
