@@ -21,4 +21,4 @@
 - put the second slice of bread on top of your plate
 
 ## Done When
-- bread / peanut butter / bread combination
+- Bread, peanut butter / Bread, on a plate or table, in one piece in three layers
