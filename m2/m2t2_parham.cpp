@@ -12,7 +12,7 @@ using namespace std;
 int main () {
 
     // DECLARE VARIABLES
-    string meal_name;       // ex: "Chicken sandwhich"
+    string meal_name;       // ex: "Chicken sandwich"
     double meal_price;      // $
     double tax_rate;        // Percent
     double tax_amount;      // $
@@ -35,7 +35,7 @@ int main () {
     // TODO: Print like a receipt
     string line = "-----------------------";
     cout << line << endl;
-    // set widt of columns and set two decimal places
+    // set width of columns and set two decimal places
     // requires up top this line: include <iomanip>
     cout << setprecision(2) << fixed;
     cout << setw(20) << meal_name << setw(10) << meal_price << endl;
