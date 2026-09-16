@@ -1,5 +1,5 @@
 // CSC- 134
-// M2LAB1 - Product Sales
+// M2T1 - Product Sales
 // Parham, L
 // 9/9/26
 // Interactice program with input
