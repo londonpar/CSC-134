@@ -18,7 +18,7 @@ void question4();
 
 int main () {
     // Run only the questions you finish by removing the //
-     question1();
+    // question1();
     // question2();
     // question3();
     // question4();
@@ -27,17 +27,33 @@ int main () {
 void question1() {
     // list variables: Account name, starting balance, withdrawal amount, annd deposit amount
     string account_name;
-    string account_number;
+    double final_balance;
     double account_balance;
     double deposit_amount;
     double withdrawal_amount;
-
-    account_name = "John Pork";
-    account_number = "1234567";
-
-
+    int account_number;
     
+    // declare account number varible
+    account_number = 123456;
 
+    // ask for information 
+    cout << "Good afternoon, Please enter the name of your account: " << endl;
+    getline(cin, account_name);
+    cout << "Enter the amount you have in your starting balance: " << endl;
+    cin  >> account_balance;
+    cout << "Enter the amount you will be deposting within your account: " << endl;
+    cin  >> deposit_amount;
+    cout << "Enter the amount you will be withdrawing: " << endl;
+    cin  >> withdrawal_amount;
+    cout << endl;
+
+    // math for account balance
+    final_balance = (account_balance + deposit_amount) - withdrawal_amount;
+
+    // has to display account number as well and info
+    cout << setprecision(2) << fixed;
+    cout << "Hello, " << account_name << "." << " account number " << account_number << endl;
+    cout << "Your current account balance is " << final_balance << endl;
 
 
 
