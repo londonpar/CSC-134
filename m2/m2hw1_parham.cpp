@@ -18,10 +18,10 @@ void question4();
 
 int main () {
     // Run only the questions you finish by removing the //
-    // question1();
-    // question2();
-    // question3();
-    // question4();
+    question1();
+    question2();
+    question3();
+    question4();
     
 }
 void question1() {
@@ -52,12 +52,13 @@ void question1() {
 
     // has to display account number as well and info
     cout << setprecision(2) << fixed;
-    cout << "Hello, " << account_name << "." << " account number " << account_number << endl;
-    cout << "Your current account balance is " << final_balance << endl;
+    cout << "Hello, " << account_name << "." << " account number " << account_number << "!" << endl;
+    cout << "Your current account balance is " << final_balance << "." << endl;
 
 
 
 }
+
 
 void question2() {
     const double  COST_PER_CUBIC_FOOT = 0.3;
@@ -95,14 +96,57 @@ void question2() {
     cout << endl;
     cout << "Cost to build: $ " << crate_cost << endl;
     cout << "Sells for:     $ " << crate_charge << endl;
-    cout << "Profit:        $ 5" << profit << endl;
+    cout << "Profit:        $ " << profit << endl;
 
 }
 
 void question3() {
-    cout << "Question 3 goes here" << endl;
+    // list variables
+    double total_slices;
+    double slices_eaten;
+    double amount_of_pizzas;
+    double slices_per_pizza;
+    double total_visitors;
+    double leftover_pizza;
+
+
+    // do the asking
+    cout << "How many pizzas are you ordering? " << endl;
+    cin  >> amount_of_pizzas;
+    cout << "How many slices per pizza are there? " << endl;
+    cin  >> slices_per_pizza;
+    cout << "How many vistors are coming? " << endl;
+    cin  >> total_visitors;
+
+    // the math
+    total_slices = amount_of_pizzas * slices_per_pizza;
+    slices_eaten = total_visitors * 3;
+    leftover_pizza = total_slices - slices_eaten;
+
+    // display the amount 
+    cout << "With a total of " << total_slices << " pizza slices and " << total_visitors << " visitors, " << endl;
+    cout << "You will have a leftover of " << leftover_pizza << " pizza slices after the party." << endl;
+    
+    
+
 }
 
 void question4() {
-    cout << "Question 4 goes here" << endl;
+    // define variables
+    string school_name;
+    string school_team;
+    string chant;
+
+    // identify 
+    school_name = "FTCC! ";
+    school_team = "Trojans! ";
+    chant       = "Let's Go ";
+
+    //inputing the chant
+
+    cout << chant << school_name << endl;
+    cout << chant << school_name << endl;
+    cout << chant << school_name << endl;
+    cout << chant << school_team << endl;
+
 }
