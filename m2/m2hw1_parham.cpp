@@ -54,9 +54,9 @@ void question1() {
     cout << setprecision(2) << fixed;
     cout << "Hello, " << account_name << "." << " account number " << account_number << "!" << endl;
     cout << "Your current account balance is " << final_balance << "." << endl;
+    cout << endl;
 
-
-
+    
 }
 
 
@@ -97,7 +97,7 @@ void question2() {
     cout << "Cost to build: $ " << crate_cost << endl;
     cout << "Sells for:     $ " << crate_charge << endl;
     cout << "Profit:        $ " << profit << endl;
-
+    cout << endl;
 }
 
 void question3() {
@@ -123,10 +123,11 @@ void question3() {
     slices_eaten = total_visitors * 3;
     leftover_pizza = total_slices - slices_eaten;
 
-    // display the amount 
+    // display the amount
+    cout << setprecision(0) << fixed;
     cout << "With a total of " << total_slices << " pizza slices and " << total_visitors << " visitors, " << endl;
     cout << "You will have a leftover of " << leftover_pizza << " pizza slices after the party." << endl;
-    
+    cout << endl;
     
 
 }
