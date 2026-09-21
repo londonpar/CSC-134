@@ -1,6 +1,6 @@
 /*
 CSC 134
-M2HW1 - Homework (4 questions max)
+M2HW1 - Homework, Gold
 Parham
 9/16/26
 */
