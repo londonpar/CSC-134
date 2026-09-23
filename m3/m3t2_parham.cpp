@@ -38,7 +38,7 @@ int main() {
         point = total; // last roll becomes the point
         cout << "Your point number is: " << point << endl;
         cout << "Keep rolling: point is win, 7 is loss." << endl;
-        // we'll finsih alater bc it requires a loop.
+        // we'll finish later bc it requires a loop.
     } 
     return 0;
 } 
