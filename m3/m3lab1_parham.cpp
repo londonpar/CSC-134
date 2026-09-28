@@ -76,7 +76,7 @@ void DPSAna() {
 
     }
 void DPSAna2() {
-    cout << "You tried to ping him but your teammates ignored your ping!" << endl;
+    cout << "You pinged him, but your teammates ignored your ping!" << endl;
     cout << "Reaper ults and everyone on your team dies." << endl;
 
 }
