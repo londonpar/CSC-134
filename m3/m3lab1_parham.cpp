@@ -6,7 +6,7 @@
 #include <iostream>
 using namespace std;
 
-// Declare tht your functions are coming later, nbefore main()
+// Declare that your functions are coming later, nbefore main()
 // after main, Define your functions in full
 void SupportAna();
 void DPSAna();
@@ -76,12 +76,13 @@ void DPSAna() {
 
     }
 void DPSAna2() {
-    cout << "You pinged him, but your teammates ignored your ping!" << endl;
+    cout << "You chose to ping him, but your teammates ignored your ping!" << endl;
     cout << "Reaper ults and everyone on your team dies." << endl;
 
 }
 void DPSAna3() {
-    cout << "You slept him as soon as he ulted." << endl;
+    cout << "You chose to sleep him." << endl;
+    cout << "You managed to sleep him as soon as he ulted." << endl;
     cout << "Your teammates turn around and win the team fight!" << endl;
 }
 
