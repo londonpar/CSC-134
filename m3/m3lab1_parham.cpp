@@ -54,19 +54,20 @@ void DPSAna() {
   // this function is called in main if the user chooses 1.
   cout << "You chose to run away" << endl;
   cout << "You manage to escape the Reinhardt pin." << endl;
- 
-  int secondchoice;
+  
+ // choice isn't declared for this one so you can re-use it.
+  int choice;
   cout << "But there's a flanking Reaper, What do you do?" << endl;
   cout << "1. Ping him to alert your teammates" << endl;
   cout << "2. Sleep him before he ults your team" << endl;
   cout << "? ";
-  cin  >> secondchoice;
+  cin  >> choice;
 
 
-  if (secondchoice == 1) {
+  if (choice == 1) {
     DPSAna2();
   }
-  else if (secondchoice == 2) {
+  else if (choice == 2) {
     DPSAna3();
   }
   else {
