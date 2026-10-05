@@ -30,7 +30,6 @@ int main () {
     tax_amount = meal_price * tax_rate;
     total      = meal_price + tax_amount;
 
-
     // OUTPUT
     // TODO: Print like a receipt
     string line = "-----------------------";
@@ -38,10 +37,10 @@ int main () {
     // set width of columns and set two decimal places
     // requires up top this line: include <iomanip>
     cout << setprecision(2) << fixed;
-    cout << setw(20) << meal_name << setw(10) << meal_price << endl;
+    cout << setw(20) << setw(10) << meal_price << endl;
     cout << setw(20) << " tax: " << setw(10) << tax_amount << endl;
     cout << line << endl;
     cout << setw(20) << "Total: " << setw(10) << total << endl;
     cout << "Thank You Come Again" << endl << endl;
-    return 0; // no errors
+
 }
