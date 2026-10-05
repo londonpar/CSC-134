@@ -19,18 +19,17 @@ int main(){
 }
 
 void question1(){
-int choice1;
-int no;
-int yes;
+int choice;
 cout << "Hello, I'm C++ Program!" << endl;
 cout << "Do you like me? Please type yes or no." << endl;
-cin  >> choice1;
-if (yes = choice1) {
+cin  >> choice;
+if (yes == choice) {
     cout << "That's great! I'm sure we'll get along." << endl;
 }
-else if (no = choice1) {
+else if (no == choice) {
     cout << "Well, maybe you'll learn to like me later" << endl;
 }
-else 
+else {
     cout << "If you're not sure.. that's okay." << endl;
+}
 }
