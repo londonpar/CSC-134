@@ -19,7 +19,7 @@ int main(){
 }
 
 void question1(){
-int choice;
+    string choice;
 cout << "Hello, I'm C++ Program!" << endl;
 cout << "Do you like me? Please type yes or no." << endl;
 cin  >> choice;
