@@ -5,6 +5,9 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdlib>  // for random
+#include <ctime>  
+#include <cmath>
 using namespace std;
 
 void question1();
@@ -14,9 +17,9 @@ void question4();
 
 int main(){
     // question1();
-     question2();
-    // question3();
-    //question4();
+    // question2();
+    //question3();
+    question4();
 }
 
 void question1(){
@@ -98,6 +101,58 @@ void question2(){
     }
 
 
+}
 
-   
+void question3(){
+int choice;
+int choice2;
+cout << "Late at night someone knocks on your door, they asked to be let in because they are being chased by a monster." << endl;
+cout << "What do you do?" << endl;
+cout << "1. Let them in." << endl;
+cout << "2. Ignore it and go back to bed" << endl;
+cin  >> choice;
+
+if (choice == 1){
+    cout << "You let them in and they thank you." << endl;
+    cout << "You soon both hear several bangs on your door. What do you do?" << endl;
+    cout << "1. Call the police." << endl;
+    cout << "2. Look in the peephole." << endl;
+    cin  >> choice2;
+    if (choice2 == 1){
+        cout << "The police weren't able to find the monster." << endl;
+        cout << "You saved the person from being taken by the monster. You Win!" << endl;
+    }
+     else if (choice2 == 2){
+        cout << "The monster makes eye contact and smiles. It disappears before you can react." << endl;
+        cout << "The next day, your family calls about your disappearance. You saved the person but what happened to you?" << endl;
+    }
+    else {
+        cout << "This is not a valid option." << endl;
+    }
+}
+if (choice == 2){
+    cout << "The banging stops and you go back to bed, but there's a sound coming from outside your bedroom door." << endl;
+    cout << "The next day, your parents call about your disappearance." << endl;
+}
+}
+
+void question4(){
+int answer;
+srand(time(0)); 
+const int MAX_NUM = 9;
+int number1 = (rand() % MAX_NUM);  
+int number2 = (rand() % MAX_NUM);
+int total;
+
+total = number1 + number2;
+cout << "What is " << number1 << " + " << number2 << "? " << endl;
+cin  >> answer;
+
+if (answer == total) {
+    cout << "Correct!" << endl;
+}
+else {
+    cout << "Incorrect." << endl;
+}
+
 }

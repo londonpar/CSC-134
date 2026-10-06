@@ -6,7 +6,7 @@
 
 #include <iostream>
 #include <cstdlib>  // for random
-#include <ctime>    // for tinme()
+#include <ctime>    // for time()
 using namespace std;
 
 int main() {
