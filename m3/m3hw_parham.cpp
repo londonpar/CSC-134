@@ -130,7 +130,7 @@ if (choice == 1){
         cout << "This is not a valid option." << endl;
     }
 }
-else if (choice == 2){
+ if (choice == 2){
     cout << "The banging stops and you go back to bed, but there's a sound coming from outside your bedroom door." << endl;
     cout << "The next day, your parents call about your disappearance." << endl;
 }
