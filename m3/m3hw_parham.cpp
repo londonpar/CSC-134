@@ -7,7 +7,6 @@
 #include <iomanip>
 #include <cstdlib>  // for random
 #include <ctime>  
-#include <cmath>
 using namespace std;
 
 void question1();
