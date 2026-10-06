@@ -16,9 +16,9 @@ void question3();
 void question4();
 
 int main(){
-    // question1();
-    // question2();
-    //question3();
+    question1();
+    question2();
+    question3();
     question4();
 }
 
