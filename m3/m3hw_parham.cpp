@@ -36,11 +36,12 @@ else if ("no" == choice) {
 else {
     cout << "If you're not sure.. that's okay." << endl;
 }
+cout << endl;
 }
 
 void question2(){
     string meal_name;      
-    int meal_price;         // $
+    double meal_price;         // $
     int choice;
     double tip_rate;        // percent
     double tax_rate;        // Percent
@@ -99,7 +100,7 @@ void question2(){
     cout << setw(20) << "Total: " << setw(10) << total2 << endl;
     cout << "Thank You Come Again" << endl << endl;
     }
-
+cout << endl;
 
 }
 
@@ -130,10 +131,14 @@ if (choice == 1){
         cout << "This is not a valid option." << endl;
     }
 }
-if (choice == 2){
+else if (choice == 2){
     cout << "The banging stops and you go back to bed, but there's a sound coming from outside your bedroom door." << endl;
     cout << "The next day, your parents call about your disappearance." << endl;
 }
+else {
+    cout << "This is not a valid option." << endl;
+}
+cout << endl;
 }
 
 void question4(){
@@ -154,5 +159,5 @@ if (answer == total) {
 else {
     cout << "Incorrect." << endl;
 }
-
+cout << endl;
 }
