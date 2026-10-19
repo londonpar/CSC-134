@@ -43,7 +43,7 @@ void speak(string message){
     // talk to user:
     // arguments: string, the message to speak
     // return: none
-    // (This would be useful if i wanted speak text to look a sccertain way, etc.)
+    // (This would be useful if i wanted speak text to look a certain way, etc.)
     cout << message << endl;
 }
 
