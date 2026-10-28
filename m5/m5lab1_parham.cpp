@@ -81,7 +81,6 @@ void main_menu() {
   }
 }
 
-// Bot helped add do-while function
 
 void choice_front_door() {
   cout << "Try the front door." << endl;
