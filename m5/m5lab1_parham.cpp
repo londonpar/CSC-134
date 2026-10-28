@@ -24,6 +24,8 @@ void choice_go_home();
 void choice_yell();
 void choice_signature();
 // TODO: add your new prototypes here
+// Bot helped 
+int get_valid_choice(int highestChoice);
 
 int main() {
   cout << "M5LAB1 - Choose Your Own Adventure" << endl;
@@ -49,7 +51,11 @@ void main_menu() {
   cout << "4. [Quit]" << endl;
   cout << "Choose: ";
   int choice = 0;
+
+  // we used get valid choice int highest choice instead 
+  /*
   cin >> choice;
+
   if (cin.fail()) {
     // The player typed something that is not a number.
     cin.clear(); // reset cin so it can read again
@@ -57,7 +63,9 @@ void main_menu() {
   }
   // Throw away the rest of the line the player typed.
   cin.ignore(numeric_limits<streamsize>::max(), '\n');
+  */
 
+  choice = get_valid_choice(4);
   if (1 == choice) {
     choice_front_door();
   } else if (2 == choice) {
@@ -73,6 +81,8 @@ void main_menu() {
   }
 }
 
+// Bot helped add do-while function
+
 void choice_front_door() {
   cout << "Try the front door." << endl;
   cout << "It's locked." << endl;
@@ -80,12 +90,18 @@ void choice_front_door() {
   cout << "1. Check around back" << endl;
   cout << "2. Give up and go home" << endl;
   int choice = 0;
+
+  
   cout << "Choose: ";
   cin >> choice;
+  choice = get_valid_choice(2); // have to add this so it works for all bc different amt of choices
   if (1 == choice) {
     choice_back_door();
   } else if (2 == choice) {
     choice_go_home();
+  }
+   else{
+    cout << "This is not a valid option. Try Again" << endl;
   }
 }
 
@@ -98,6 +114,8 @@ void choice_back_door() {
   int choice = 0;
   cout << "Choose: ";
   cin >> choice;
+
+  choice = get_valid_choice(3); // have to add this so it works for all bc different amt of choices
   if (1 == choice) {
     choice_yell();
   }
@@ -107,6 +125,10 @@ void choice_back_door() {
   else if (3 == choice) {
     choice_go_home();
   }
+   else {
+    cout << "This is not a valid option. Try Again" << endl;
+  }
+
 }
 
 void choice_go_home() {
@@ -126,6 +148,44 @@ void choice_signature(){
   cout << "Do you:" << endl;
   cout << "1. Knock on the back door." << endl;
   cout << "2. Go home" << endl;
-  cout << endl;
+  cout << "Choose: ";
+  int choice = 0;
+  cin >> choice;
+
+  choice = get_valid_choice(2); // have to add this so it works for all bc different amt of choices
+  if (1 == choice){
+    cout << "The door opens but no one is inside. You look around before feeling a presence behind you." << endl;
+    cout << "You're suddenly pushed into the house, falling onto the floor. While the door slams behind you." << endl;
+    cout << "The door won't open. You're stuck in the house before darkness consumes you" << endl;
+  }
+  else if (2 == choice){
+    choice_go_home();
+  }
+  else{
+    cout << "This is not a valid option. Try Again" << endl;
+  }
+
 }
 
+// Bot gave this information- helps to return to the question if enters invalid choice 
+int get_valid_choice(int highestChoice) {
+	int choice = 0;
+
+	do {
+		cout << "Choose: ";
+
+		if (!(cin >> choice)) {
+			cin.clear();
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			choice = 0;
+		} else {
+			cin.ignore(numeric_limits<streamsize>::max(), '\n');
+		}
+
+		if (choice < 1 || choice > highestChoice) {
+			cout << "Invalid choice. Try again." << endl;
+		}
+	} while (choice < 1 || choice > highestChoice);
+
+	return choice;
+}
