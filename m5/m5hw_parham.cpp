@@ -55,13 +55,13 @@ void main_menu(){
         question5();
     }
     else if (6 == choice){
+        cout << "Exiting." << endl;
         return;
     }
     else {
         cout << "That's not a valid choice. Try Again.";
         main_menu();
     }
-
 
 }
 
@@ -132,7 +132,10 @@ volume = length * width * height;
     cout << "The Rectangle's height is: " << height << endl;
     cout << "The Rectangle's length is: " << length << endl; 
     cout << "The volume of the rectangle is: " << volume << endl;
+
+return main_menu();
 }
+
 
 void question3(){
     int number = 0;
@@ -146,6 +149,8 @@ while (number < 1 || number > 10){
 // had to search to know how input roman numbers, using Lunabot on codespace
 string roman[] = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"};
  cout << "The Roman numeral version of " << number << " is " << roman[number - 1] << endl;
+
+ return main_menu();
 }
 
 void question4(){
@@ -230,29 +235,37 @@ void question4(){
     else {
         cout << "The valid choices are 1 through 4. Run the program again and select one of those."<< endl;
     }
+    return main_menu();
 }
 
 void question5(){
     // declare variables
-    int speed = 0;
-    int hours = 0;
+    int speed;
+    int hours;
     double distance;
 
+// ask user
  cout << "What is the speed of the vehicle in mph? ";
  cin  >> speed;
 
  cout << "How many hours has it traveled? ";
  cin >> hours;
+ // input validation
+if (hours < 1 ||speed < 1){
+    cout << "No negatives or values less than one for speed or time traveled." << endl;
+    return;
+}
 
- // math
- distance = speed * hours;
+ // display + loop, used m5t2 & m4t1 as guide
+cout << endl << "Hour      Distance Traveled " << endl;
+cout << "--------------------------" << endl;
+while (speed >= 1) {
+        cout << hours << "\t" << speed * hours << endl;
+        hours++;
+    }
 
- // display + loop
-while()
-    cout << endl << "Hour      Distance Traveled " << endl;
-    cout << "--------------------------" << endl;
 
-
+return main_menu();
 }
 
 // from m5lab1
