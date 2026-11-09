@@ -233,7 +233,26 @@ void question4(){
 }
 
 void question5(){
- 
+    // declare variables
+    int speed = 0;
+    int hours = 0;
+    double distance;
+
+ cout << "What is the speed of the vehicle in mph? ";
+ cin  >> speed;
+
+ cout << "How many hours has it traveled? ";
+ cin >> hours;
+
+ // math
+ distance = speed * hours;
+
+ // display + loop
+while()
+    cout << endl << "Hour      Distance Traveled " << endl;
+    cout << "--------------------------" << endl;
+
+
 }
 
 // from m5lab1
