@@ -134,7 +134,6 @@ volume = length * width * height;
     cout << "The volume of the rectangle is: " << volume << endl;
 }
 
-
 void question3(){
     int number = 0;
     cout << "Enter a number (1 - 10): ";
@@ -174,6 +173,7 @@ void question4(){
         cin  >> radius;
         if (radius <= 0){
             cout << "The radius cannot be less than zero." << endl;
+            return;
         }
 
     // math
@@ -190,9 +190,11 @@ void question4(){
         // input validation
         if (length <= 0){
             cout << "The length cannot be negative or zero." << endl;
+            return;
         }
         if (width <= 0){
             cout << "The width cannot be negaitve or zero." << endl;
+            return;
         }
     // math
     area = length * width;
@@ -201,24 +203,25 @@ void question4(){
     }
     
     else if (3 == choice){
-        while (base <=0 || height <=0){
-        cout << "Enter the length of the Triangle's base ";
+        cout << "Enter the length of the Triangle's base: ";
         cin >> base;
         cout << "Enter the Triangle's height: ";
         cin >> height;
             if (base <= 0){
             cout << "Only enter postive values for base and height." << endl;
+            return;
         }
+    
         if (height <= 0){
             cout << "Only enter postive values for base and height." << endl;
+            return;
         }
     // math
     area = base * height * .5;
     //display
     cout << "The area is " << area << endl;
-
     }
-}
+
     else if (4 == choice){
       cout << "Quitting."<< endl;
       return;
@@ -229,8 +232,8 @@ void question4(){
     }
 }
 
-
 void question5(){
+ 
 }
 
 // from m5lab1
