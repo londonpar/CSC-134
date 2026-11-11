@@ -259,9 +259,8 @@ if (hours < 1 ||speed < 1){
  // display + loop, used m5t2 & m4t1 as guide
 cout << endl << "Hour      Distance Traveled " << endl;
 cout << "--------------------------" << endl;
-while (speed >= 1) {
-        cout << hours << "\t" << speed * hours << endl;
-        hours++;
+for (int hour = 1; hour <= hours; hour++){     // tells range of # we use starting at 1 hour
+        cout << hour << "\t" << speed * hour << endl;
     }
 
 
