@@ -88,20 +88,24 @@ int main() {
         "A spacious room with boxes and a framed bed. A hidden door is here; type 'use key' to unlock it.",
         "A dark, damp basement with cobwebs in the corners and a washer and dryer.",
         "A cramped attic with a faulty light bulb. Type 'use flashlight' to search.",
+        // took out description of hidden room messed with formatting
     };
     string itemClues[NUM_ITEMS] = {
         "A flashlight is here. Type take to pick it up.",
         "A doll is here. Type take to pick it up.",
         "A key is here. Type take to pick it up."
     };
-    // BONUS: objects. Use two more parallel arrays, the same way:
+    // BONUS: objects. Use two more parallel arrays, the same way: Help from Luna Chat bot
+    // itemRoom[i] holds the room number where item i is.
+    // You also need an enum Item that ends with NUM_ITEMS.
+
         string itemNames[NUM_ITEMS] = {"flashlight", "doll", "key"};
         int itemRoom[NUM_ITEMS]     = {KITCHEN, HIDDEN_ROOM, -1};
         bool inventory[NUM_ITEMS]   = {false, false, false}; // Track which items the player has taken.
         bool atticSearched = false;
+    
 
-    // itemRoom[i] holds the room number where item i is.
-    // You also need an enum Item that ends with NUM_ITEMS.
+
 
     // ============================================================
     // PART 3: THE MAP (a 2D array)
@@ -109,7 +113,6 @@ int main() {
     // The value -1 means "no exit".
     // ============================================================
     int connections[NUM_ROOMS][NUM_DIRECTIONS];
-
     // KEEP: set every cell to -1 first. Then set only the exits that exist.
     for (int i = 0; i < NUM_ROOMS; i++) {
         for (int j = 0; j < NUM_DIRECTIONS; j++) {
@@ -187,6 +190,7 @@ int main() {
         // TRY: type NORTH in capital letters. Why does it fail?
         // STRETCH: the four direction blocks repeat the same idea.
         // Can you replace them with one loop over DIRECTION_NAMES?
+    
         if (command == "north" || command == "n") {
             if (connections[currentRoom][NORTH] != -1) {
                 currentRoom = connections[currentRoom][NORTH];   // move to the new room
@@ -213,6 +217,7 @@ int main() {
             } else {
                 cout << "You can't go that way." << endl;
             }
+     // information to confirm that user has picked up needed items to use in game gave and helped with Lunabot
         } else if (command == "take") { // Allow the player to take items in the current room.
             bool foundItem = false; // Remember whether this room contains an item.
             for (int i = 0; i < NUM_ITEMS; i++) { // Check each item location.
