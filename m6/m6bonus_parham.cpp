@@ -85,17 +85,21 @@ int main() {
         "A grand entrance hall with a dusty chandelier hanging above.",
         "A small living space with old chairs and glass table.",
         "A small kitchen with an old stove and wooden counters.",
-        "A spacious room with boxes and a framed bed.",
+        "A spacious room with boxes and a framed bed. A hidden door is here; type 'use key' to unlock it.",
         "A dark, damp basement with cobwebs in the corners and a washer and dryer.",
-        "A cramped attic with a faulty light bulb, you need a flashlight to searh ",
-        "A small door is covered with wall paper, you can't open it. it requires a key to open it.",
+        "A cramped attic with a faulty light bulb. Type 'use flashlight' to search.",
+        "A small hidden room lies beyond the door.",
     };
-
+    string itemClues[NUM_ITEMS] = {
+        "A flashlight is here. Type take to pick it up.",
+        "A doll is here. Type take to pick it up.",
+        "A key is here. Type take to pick it up."
+    };
     // BONUS: objects. Use two more parallel arrays, the same way:
         string itemNames[NUM_ITEMS] = {"flashlight", "doll", "key"};
-        int itemRoom[NUM_ITEMS]     = {KITCHEN, ATTIC, BASEMENT};
-        // string itemclues[]
+        int itemRoom[NUM_ITEMS]     = {KITCHEN, -1, -1};
         bool inventory[NUM_ITEMS]   = {false, false, false}; // Track which items the player has taken.
+        bool atticSearched = false;
 
     // itemRoom[i] holds the room number where item i is.
     // You also need an enum Item that ends with NUM_ITEMS.
@@ -125,9 +129,10 @@ int main() {
     connections[KITCHEN][WEST]        = ENTRANCE_HALL;
     connections[BEDROOM][EAST]         = ENTRANCE_HALL;
     connections[BASEMENT][NORTH]      = KITCHEN;
-    connections[BEDROOM][NORTH] = ATTIC;     // EXAMPLE 4 of 4
-    connections[ATTIC][SOUTH]   = BEDROOM;   // EXAMPLE 4 of 4
+    connections[DEN][NORTH] = ATTIC;     // EXAMPLE 4 of 4
+    connections[ATTIC][SOUTH]   = DEN;   // EXAMPLE 4 of 4
     connections[BEDROOM][SOUTH] = HIDDEN_ROOM;
+    connections[HIDDEN_ROOM][NORTH] = BEDROOM;
     // TRY: delete one "way back" line. Predict what the player can do.
 
     // ============================================================
@@ -135,6 +140,7 @@ int main() {
     // ============================================================
     int currentRoom = ENTRANCE_HALL;   // EDIT: start in any room
     bool gameRunning = true;           // KEEP: the loop runs while this is true
+    bool hiddenDoorUnlocked = false;
 
     // ============================================================
     // PART 5: THE GAME LOOP
@@ -149,6 +155,11 @@ int main() {
         // Step 1: show the room.
         cout << "\nYou are in the " << roomNames[currentRoom] << endl;
         cout << roomDescriptions[currentRoom] << endl;
+        for (int i = 0; i < NUM_ITEMS; i++) {
+            if (itemRoom[i] == currentRoom) {
+                cout << itemClues[i] << endl;
+            }
+        }
 
         // Step 1, continued: show the exits.
         // The loop reads one row of the map. A cell that is not -1 is an exit.
@@ -190,7 +201,9 @@ int main() {
                 cout << "You can't go that way." << endl;
             }
         } else if (command == "south" || command == "s") {
-            if (connections[currentRoom][SOUTH] != -1) {
+            if (currentRoom == BEDROOM && !hiddenDoorUnlocked) {
+                cout << "The hidden door is locked. Type 'use key' to unlock it." << endl;
+            } else if (connections[currentRoom][SOUTH] != -1) {
                 currentRoom = connections[currentRoom][SOUTH];
             } else {
                 cout << "You can't go that way." << endl;
@@ -214,6 +227,41 @@ int main() {
             if (!foundItem) { // Handle take when this room has no items.
                 cout << "There is nothing here to take." << endl; // Explain why nothing was collected.
             } // Finish the no-item check.
+        } else if (command == "search") {
+            if (currentRoom != ATTIC) {
+                cout << "There is nothing useful to search here." << endl;
+            } else {
+                cout << "It's too dark to search. Type 'use flashlight'." << endl;
+            }
+        } else if (command == "use") {
+            string item;
+            if (!(cin >> item)) {
+                break;
+            } else if (item == "flashlight") {
+                if (currentRoom != ATTIC) {
+                    cout << "There is nowhere dark to use the flashlight." << endl;
+                } else if (!inventory[FLASHLIGHT]) {
+                    cout << "You don't have a flashlight." << endl;
+                } else if (atticSearched) {
+                    cout << "You have already searched the attic." << endl;
+                } else {
+                    atticSearched = true;
+                    itemRoom[DOLL] = ATTIC;
+                    itemRoom[KEY] = ATTIC;
+                    cout << "You search the attic with your flashlight and find a doll and a key." << endl;
+                }
+            } else if (item != "key") {
+                cout << "You can't use that item." << endl;
+            } else if (currentRoom != BEDROOM) {
+                cout << "There is no locked door here." << endl;
+            } else if (!inventory[KEY]) {
+                cout << "You don't have a key." << endl;
+            } else if (hiddenDoorUnlocked) {
+                cout << "The hidden door is already unlocked." << endl;
+            } else {
+                hiddenDoorUnlocked = true;
+                cout << "You unlock the hidden door with the key. Go south to enter." << endl;
+            }
         } else if (command == "quit" || command == "q") {
             gameRunning = false;   // Step 4 will end the loop
         } else {
@@ -222,7 +270,7 @@ int main() {
         }
     }
 
-    // EDIT: write your own goodbye.
+    cout << "You found the doll! It has $100 dollars in its jacket!" << endl;
     cout << "Thanks for playing!" << endl;
-    return 0;
+    return 0; 
 }

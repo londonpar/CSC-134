@@ -43,3 +43,7 @@ for (int i = 0; i < NUM_ITEMS; i++) {
 ```
 
 The existing `take` command sets a collected item's room to `-1`, so its clue will no longer be shown.
+
+## Suggestion
+
+Keep item clues separate from the room descriptions and show them whenever the player is in the item's room. This makes it clear that the item is available to take, without continuing to advertise it after it has been collected. In the attic, require `use flashlight` to reveal the doll and key; at the bedroom door, require `use key` to unlock it.
