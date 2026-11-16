@@ -46,4 +46,13 @@ The existing `take` command sets a collected item's room to `-1`, so its clue wi
 
 ## Suggestion
 
-Keep item clues separate from the room descriptions and show them whenever the player is in the item's room. This makes it clear that the item is available to take, without continuing to advertise it after it has been collected. In the attic, require `use flashlight` to reveal the doll and key; at the bedroom door, require `use key` to unlock it.
+Keep item clues separate from the room descriptions and show them whenever the player is in the item's room. In the attic, require `use flashlight` to reveal the key; place the doll in the hidden room. At the bedroom door, require `use key` to unlock it.
+
+added end game after the doll is found  
+``` cpp
+foundItem = true; 
+    if (i == DOLL) {
+        gameRunning = false;
+        break;
+    }
+```

@@ -88,7 +88,6 @@ int main() {
         "A spacious room with boxes and a framed bed. A hidden door is here; type 'use key' to unlock it.",
         "A dark, damp basement with cobwebs in the corners and a washer and dryer.",
         "A cramped attic with a faulty light bulb. Type 'use flashlight' to search.",
-        "A small hidden room lies beyond the door.",
     };
     string itemClues[NUM_ITEMS] = {
         "A flashlight is here. Type take to pick it up.",
@@ -97,7 +96,7 @@ int main() {
     };
     // BONUS: objects. Use two more parallel arrays, the same way:
         string itemNames[NUM_ITEMS] = {"flashlight", "doll", "key"};
-        int itemRoom[NUM_ITEMS]     = {KITCHEN, -1, -1};
+        int itemRoom[NUM_ITEMS]     = {KITCHEN, HIDDEN_ROOM, -1};
         bool inventory[NUM_ITEMS]   = {false, false, false}; // Track which items the player has taken.
         bool atticSearched = false;
 
@@ -222,6 +221,10 @@ int main() {
                     itemRoom[i] = -1; // Mark the item as no longer in the room.
                     cout << "You took the " << itemNames[i] << "." << endl; // Confirm the pickup.
                     foundItem = true; // Record that the command succeeded.
+                    if (i == DOLL) {
+                        gameRunning = false;
+                        break;
+                    }
                 } // Finish checking this item's location.
             } // Finish checking all item locations.
             if (!foundItem) { // Handle take when this room has no items.
@@ -246,9 +249,8 @@ int main() {
                     cout << "You have already searched the attic." << endl;
                 } else {
                     atticSearched = true;
-                    itemRoom[DOLL] = ATTIC;
                     itemRoom[KEY] = ATTIC;
-                    cout << "You search the attic with your flashlight and find a doll and a key." << endl;
+                    cout << "You search the attic with your flashlight and find a key." << endl;
                 }
             } else if (item != "key") {
                 cout << "You can't use that item." << endl;
@@ -270,7 +272,9 @@ int main() {
         }
     }
 
-    cout << "You found the doll! It has $100 dollars in its jacket!" << endl;
+    if (inventory[DOLL]) {
+        cout << "You found the doll! It has $100 dollars in its jacket!" << endl;
+    }
     cout << "Thanks for playing!" << endl;
-    return 0; 
+    return 0;
 }
