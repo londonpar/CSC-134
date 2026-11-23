@@ -155,6 +155,9 @@ connections[SANTA_OFFICE][SOUTH] = ENTRANCE;
             cout << "I don't understand that command. Type help to see what you can do." << endl;
         }
 }
+cout << "This is only the start of your journey as an new elf! " << endl;
+cout << "Thanks For Playing !" << endl;
 
+return 0;
 }
 
